@@ -34,6 +34,7 @@ build-app:
     - node -v
     - npm -v
     - cd src/web
+    - npm install -g svgo
     - npm --force install -g yarn
     - yarn --non-interactive
     - yarn build --non-interactive
