@@ -1,0 +1,6 @@
+{
+  "short_name": "Configee",
+  "name": "Configee",
+  "start_url": ".",
+  "display": "standalone"
+}
