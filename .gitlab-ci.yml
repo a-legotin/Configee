@@ -1,6 +1,7 @@
 stages:
     - build-net
     - build-app
+    - build-images
     - deploy
 
 variables:
