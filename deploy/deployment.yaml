@@ -1,0 +1,27 @@
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: configee-web-deployment
+  namespace: configee
+  labels:
+    app: configee-web
+spec:
+  replicas: 1
+  revisionHistoryLimit: 2
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: configee-web
+  template:
+    metadata:
+      labels:
+        app: configee-web
+    spec:
+      containers:
+         - name: configee-web
+           image: registry.ezlab.ru/ezlab/configee/configee-web:latest
+           imagePullPolicy: Always
+      imagePullSecrets:
+        - name: registry-credentials
