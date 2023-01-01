@@ -1,14 +1,28 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 
 export class Dashboard extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Dashboard</h1>
+      <>
+        <div className="columns">
+          <div className="column is-2">
+            <aside className="menu">
+              <p className="menu-label">
+                General
+              </p>
+              <ul className="menu-list">
+                <li>Dashboard</li>
+                <li>Customers</li>
+              </ul>
 
-        <p>This is a simple example of a React component.</p>
-      </div>
+            </aside>
+          </div>
+          <div className="column">
+            <h1>Dashboard</h1>
+          </div>
+        </div>
+      </>
     );
   }
 }

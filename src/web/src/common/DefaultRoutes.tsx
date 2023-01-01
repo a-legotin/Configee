@@ -1,10 +1,9 @@
-import Login from "../features/authentication/login.feature";
-import { Dashboard } from "../components/dashboard/dashboard.component";
+import Login from "../components/authentication/login.component";
 import { Home } from "../components/home/home.component";
 
 const DeafultRoutes = [
   {
-    index: true,
+    path: '/',
     element: <Home />
   },
   {
@@ -12,8 +11,8 @@ const DeafultRoutes = [
     element: <Login />
   },
   {
-    path: '/dashboard',
-    element: <Dashboard />
+    path: '*',
+    element: <Login />
   }
 ];
 

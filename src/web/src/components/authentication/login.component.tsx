@@ -1,9 +1,8 @@
-import React, { Component, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks'
-import { postLogIn, reset } from '../../store/slices/AuthSlice'
-import { Formik, Field, Form, ErrorMessage } from "formik";
+import { postLogIn } from '../../store/slices/AuthSlice'
+import { Formik, Field, Form } from "formik";
 
 const Login = () => {
 
@@ -29,7 +28,7 @@ const Login = () => {
             successMessage();
             navigate('/dashboard', { replace: true });
         }
-    }, [error, loading]);
+    }, [error, loading, isLogin, navigate]);
 
     return (
         <>

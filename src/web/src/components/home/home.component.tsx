@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import { Component } from "react";
 import logo from './../../assets/logo.svg';
 
 export class Home extends Component {
@@ -25,7 +25,7 @@ export class Home extends Component {
                         <div className="buttons">
                           <a
                             className="button is-medium is-link"
-                            href="/login"
+                            href="/dashboard"
                           >
                             Login to dashboard
                           </a>
