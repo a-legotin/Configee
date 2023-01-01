@@ -9,7 +9,7 @@ export class NavMenu extends Component {
       <header>
         <nav
           aria-label="main navigation"
-          className="navbar mt-5 mb-5"
+          className="navbar"
           role="navigation"
         >
           <div className="navbar-brand">
