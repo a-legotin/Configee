@@ -1,9 +1,8 @@
 import React, { Component } from "react";
+import { useAppDispatch } from "../../hooks/hooks";
 import logo_nav from "./../../assets/logo_nav.png";
 
 export class NavMenu extends Component {
-  static displayName = NavMenu.name;
-
   render() {
     return (
       <header>

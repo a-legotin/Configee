@@ -1,18 +1,18 @@
 import { Component } from "react";
 import { Routes, Route } from "react-router-dom";
 
-import AppRoutes from "./AppRoutes";
+import DefaultRoutes from "./common/DefaultRoutes";
 import Layout from "./components/layout/layout.component";
+import { useAppSelector } from "./hooks/hooks";
 import "./index.css";
 
 export default class App extends Component {
-  static displayName = App.name;
 
   render() {
     return (
       <Layout>
         <Routes>
-          {AppRoutes.map((route, index) => {
+          {DefaultRoutes.map((route, index) => {
             const { element, ...rest } = route;
             return <Route key={index} {...rest} element={element} />;
           })}
