@@ -1,5 +1,5 @@
-import { Counter } from "./components/counter/Counter";
-import { Home } from "./components/home/Home";
+import { Login } from "./components/authentication/login.component";
+import { Home } from "./components/home/home.component";
 
 const AppRoutes = [
   {
@@ -8,7 +8,7 @@ const AppRoutes = [
   },
   {
     path: '/login',
-    element: <Counter />
+    element: <Login />
   }
 ];
 
