@@ -21,7 +21,7 @@ import { USER_ROLE } from 'configs';
 // actions
 import { login } from 'actions/auth.action';
 import { useAppDispatch } from 'hooks/useDispatch';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import { ConfigeeIcon } from '../../components/atoms/icons/ConfigeeIcon';
 
 const useStyles = makeStyles((theme: Theme) => ({
   paper: {
@@ -32,7 +32,6 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
   },
   form: {
     width: '100%', // Fix IE 11 issue.
@@ -56,7 +55,7 @@ export default function SignIn() {
   };
 
   const handleSelectChange = (event: SelectChangeEvent) => {
-    setName(event.target.value as string);
+    setRole(event.target.value as string);
   };
 
   return (
@@ -64,7 +63,7 @@ export default function SignIn() {
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
+          <ConfigeeIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
           Login
