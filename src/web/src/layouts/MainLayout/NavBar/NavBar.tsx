@@ -21,7 +21,6 @@ import useStyles from './styles';
 
 import logo_nav from '../../../assets/logo_nav.png';
 
-
 type IProps = {
   isDrawer: boolean;
 };

@@ -24,10 +24,7 @@ function createData(name: string, email: string, role: string) {
   return { name, email, role };
 }
 
-const rows = [
-  createData('Alexander', 'alex@ezlab.ru', 'ADMIN'),
-  createData('Vasya', 'vasya@ezlab.ru', 'OPERATOR'),
-];
+const rows = [createData('Alexander', 'alex@ezlab.ru', 'ADMIN'), createData('Vasya', 'vasya@ezlab.ru', 'OPERATOR')];
 
 export default function UserList() {
   const classes = useStyles();
