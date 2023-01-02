@@ -11,6 +11,7 @@ import { PATH_NAME } from 'configs';
 // actions
 import { logout } from 'actions/auth.action';
 import { useAppDispatch } from 'hooks/useDispatch';
+import { useTranslation } from 'react-i18next';
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -26,10 +27,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     color: '#252932',
     textShadow: 'rgba(61, 61, 61, 0.3) 1px 1px, rgba(61, 61, 61, 0.2) 2px 2px, rgba(61, 61, 61, 0.3) 3px 3px;fontSize: 150',
   },
-  desc: {
-    fontWeight: 'normal',
-    marginTop: 30,
-  },
 }));
 
 function DenyView() {
@@ -38,6 +35,7 @@ function DenyView() {
   const mobileDevice = useMediaQuery(theme.breakpoints.down('sm'));
   const dispatch = useAppDispatch();
   const history = useHistory();
+  const { t: translate } = useTranslation();
 
   const _handleLogout = () => {
     dispatch(logout());
@@ -47,21 +45,17 @@ function DenyView() {
   return (
     <div className={classes.root}>
       <Container maxWidth="lg">
-        <Grid container>
-          <Grid xs={12} container>
-            <Typography align="center" variant={mobileDevice ? 'h4' : 'h1'} color="textPrimary" className={classes.heading}>
-              403
-            </Typography>
-            <Typography align="center" variant="h3" className={classes.desc}>
-              Sorry, access denied. Please contact admin to verify and update your role.
-            </Typography>
-            <Box mt={2} display="flex" justifyContent="center">
-              <Button color="primary" variant="contained" onClick={_handleLogout}>
-                LOGOUT
-              </Button>
-            </Box>
-          </Grid>
-        </Grid>
+        <Typography align="center" variant={mobileDevice ? 'h4' : 'h1'} color="textPrimary" className={classes.heading}>
+          403
+        </Typography>
+        <Typography align="center" variant="subtitle2" color="textSecondary">
+          Sorry, access denied. Please contact admin to verify and update your role.
+        </Typography>
+        <Box mt={6} display="flex" justifyContent="center">
+          <Button color="primary" variant="contained" onClick={_handleLogout}>
+            {translate('LOGOUT')}
+          </Button>
+        </Box>
       </Container>
     </div>
   );
