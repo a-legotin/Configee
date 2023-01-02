@@ -1,24 +1,35 @@
-import { createRoot } from 'react-dom/client';
-import { BrowserRouter } from "react-router-dom";
-import App from "./App";
-import reportWebVitals from "./reportWebVitals";
-import { PersistGate } from 'redux-persist/integration/react';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import store, { persistor } from "./store/store";
 
+// context
+import { GlobalProvider } from 'context/GlobalContext';
 
-const container = document.getElementById('root')!;
-const root = createRoot(container);
+// stores
+import store from 'stores';
 
-root.render(
-  <BrowserRouter>
-    <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <App />
-      </PersistGate>
-    </Provider>
-  </BrowserRouter>
+// i18n
+import 'locales/i18n';
+
+// services
+import initRequest from 'services/initRequest';
+
+// components
+import App from './App';
+
+// styles
+import './index.css';
+import reportWebVitals from './reportWebVitals';
+
+initRequest(store);
+
+ReactDOM.render(
+  <Provider store={store}>
+    <GlobalProvider>
+      <App />
+    </GlobalProvider>
+  </Provider>,
+  document.getElementById('root'),
 );
 
 reportWebVitals();
-

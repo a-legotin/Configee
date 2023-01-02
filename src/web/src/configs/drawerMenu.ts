@@ -1,0 +1,4 @@
+export const DRAWER_MENU_LABEL = {
+  DASHBOARD: 'DASHBOARD',
+  USERS: 'USERS',
+};

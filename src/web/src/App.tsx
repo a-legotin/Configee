@@ -1,40 +1,44 @@
-import { Routes, Route } from "react-router-dom";
-import DeafultRoutes from "./common/DefaultRoutes";
-import UserRoutes from "./common/UserRoutes";
-import Layout from "./components/layout/layout.component";
-import { useAppSelector } from "./hooks/hooks";
-import "./index.css";
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { ThemeProvider } from '@mui/material/styles';
+// context
+import { useGlobalContext } from 'context/GlobalContext';
+
+// containers
+import Auth from 'containers/Auth';
+
+// atomic
+import LinearProgress from 'components/atoms/LinearProgress';
+import Dialog from 'components/molecules/Dialog';
+
+// themes
+import themes from 'themes';
+import { THEMES } from 'configs';
+
+// routes
+import Routes from 'routes/Routes';
 
 function App() {
-  const isLogin = useAppSelector((state) => state.auth.isLogin)
-  return (
-    <div className="App">
-      {isLogin &&
-        <>
-          <Layout>
-            <Routes>
-              {UserRoutes.map((route, index) => {
-                const { element, ...rest } = route;
-                return <Route key={index} {...rest} element={element} />;
-              })}
-            </Routes>
-          </Layout>
-        </>
-      }
-      {!isLogin &&
-        <>
-          <Layout>
-            <Routes>
-              {DeafultRoutes.map((route, index) => {
-                const { element, ...rest } = route;
-                return <Route key={index} {...rest} element={element} />;
-              })}
-            </Routes>
-          </Layout>
-        </>
-      }
+  // 0: light, 1: dark
+  const { i18n } = useTranslation();
+  const { modeTheme, language } = useGlobalContext();
+  const type = modeTheme === THEMES.LIGHT ? 0 : 1;
 
-    </div>
+  useEffect(() => {
+    i18n.changeLanguage(language);
+  }, [language, i18n]);
+
+  return (
+    <ThemeProvider theme={themes(type)}>
+      <Router>
+        <Auth>
+          <LinearProgress />
+          <Dialog />
+          <Routes />
+        </Auth>
+      </Router>
+    </ThemeProvider>
   );
 }
 
