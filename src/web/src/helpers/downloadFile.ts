@@ -1,5 +1,5 @@
-const downloadFile = (name: string, url: string, filetype: string) => {
-  return new Promise<void>((resolve, reject) => {
+const downloadFile = (name: string, url: string, filetype: string) =>
+  new Promise<void>((resolve, reject) => {
     fetch(url)
       .then((resp) => resp.blob())
       .then((blob) => {
@@ -18,6 +18,5 @@ const downloadFile = (name: string, url: string, filetype: string) => {
         reject();
       });
   });
-};
 
 export default downloadFile;

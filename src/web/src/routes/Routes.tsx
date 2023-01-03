@@ -83,45 +83,43 @@ const routesConfig: IRoutes[] = [
   },
 ];
 
-const renderRoutes = (routes: IRoutes[]) => {
-  return (
-    <>
-      {routes ? (
-        <Suspense fallback={<div />}>
-          <Switch>
-            {routes.map((route: IRoutes, idx: number) => {
-              const Guard = route.guard || Fragment;
-              const Layout = route.layout || Fragment;
-              const Component = route.component;
-              const requireRoles = route.requireRoles || [];
+const renderRoutes = (routes: IRoutes[]) => (
+  <>
+    {routes ? (
+      <Suspense fallback={<div />}>
+        <Switch>
+          {routes.map((route: IRoutes, idx: number) => {
+            const Guard = route.guard || Fragment;
+            const Layout = route.layout || Fragment;
+            const Component = route.component;
+            const requireRoles = route.requireRoles || [];
 
-              return (
-                <Route
-                  key={`routes-${idx}`}
-                  path={route.path}
-                  exact={route.exact}
-                  render={(props: any) => (
-                    <Guard>
-                      <Layout>
-                        {route.routes ? (
-                          renderRoutes(route.routes)
-                        ) : (
-                          <RoleRoute requireRoles={requireRoles}>
-                            <Component {...props} />
-                          </RoleRoute>
-                        )}
-                      </Layout>
-                    </Guard>
-                  )}
-                />
-              );
-            })}
-          </Switch>
-        </Suspense>
-      ) : null}
-    </>
-  );
-};
+            return (
+              <Route
+                key={`routes-${idx}`}
+                path={route.path}
+                exact={route.exact}
+                render={(props: any) => (
+                  <Guard>
+                    <Layout>
+                      {route.routes ? (
+                        renderRoutes(route.routes)
+                      ) : (
+                        <RoleRoute requireRoles={requireRoles}>
+                          <Component {...props} />
+                        </RoleRoute>
+                      )}
+                    </Layout>
+                  </Guard>
+                )}
+              />
+            );
+          })}
+        </Switch>
+      </Suspense>
+    ) : null}
+  </>
+);
 
 function Routes() {
   return renderRoutes(routesConfig);

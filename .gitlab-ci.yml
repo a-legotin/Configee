@@ -32,7 +32,7 @@ build-app:
     - npm -v
     - cd src/web
     - npm install
-    - npm run build
+    - npm run ready
 
 build-images:
   stage: build-images

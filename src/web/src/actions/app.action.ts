@@ -16,16 +16,14 @@ export const setDialog = (isShow: boolean, type: string = 'error', content: Reac
   },
 });
 
-export const enqueueSnackbarAction = (notification: INotifer) => {
-  return {
-    type: IAppActionTypes.ENQUEUE_SNACKBAR,
-    payload: {
-      key: notification.key || new Date().getTime() + Math.random(),
-      message: notification.message,
-      variant: notification.variant || 'success',
-    },
-  };
-};
+export const enqueueSnackbarAction = (notification: INotifer) => ({
+  type: IAppActionTypes.ENQUEUE_SNACKBAR,
+  payload: {
+    key: notification.key || new Date().getTime() + Math.random(),
+    message: notification.message,
+    variant: notification.variant || 'success',
+  },
+});
 
 export const removeSnackbar = (key: string | number | undefined) => ({
   type: IAppActionTypes.REMOVE_SNACKBAR,

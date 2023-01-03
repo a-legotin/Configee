@@ -37,9 +37,9 @@ function NavBar({ isDrawer }: IProps) {
   const classes = useStyles();
   const location = useLocation();
 
-  const renderNavItems = ({ items, pathname, depth }: IChildNavBar) => {
-    return <List disablePadding>{items?.reduce((acc, curr) => renderChildRoutes({ acc, curr, pathname, depth }), [])}</List>;
-  };
+  const renderNavItems = ({ items, pathname, depth }: IChildNavBar) => (
+    <List disablePadding>{items?.reduce((acc, curr) => renderChildRoutes({ acc, curr, pathname, depth }), [])}</List>
+  );
 
   const renderChildRoutes = ({ acc, curr, pathname, depth = 0 }: IChildRoutes) => {
     const key = curr.title + depth;
@@ -84,19 +84,15 @@ function NavBar({ isDrawer }: IProps) {
     return acc;
   };
 
-  const renderNavbarCommon = (navbars: any) => {
-    return (
-      <>
-        {navbars.map((nav: any) => {
-          return (
-            <List key={nav.subheader} subheader={<ListSubheader disableSticky>{nav.subheader}</ListSubheader>}>
-              {renderNavItems({ items: nav.items, pathname: location.pathname })}
-            </List>
-          );
-        })}
-      </>
-    );
-  };
+  const renderNavbarCommon = (navbars: any) => (
+    <>
+      {navbars.map((nav: any) => (
+        <List key={nav.subheader} subheader={<ListSubheader disableSticky>{nav.subheader}</ListSubheader>}>
+          {renderNavItems({ items: nav.items, pathname: location.pathname })}
+        </List>
+      ))}
+    </>
+  );
 
   return (
     <Drawer

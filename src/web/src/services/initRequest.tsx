@@ -45,7 +45,7 @@ export default function initRequest(store: any) {
       if (cancel) {
         cancel(); // cancel request
       }
-      config.cancelToken = new CancelToken(function executor(c) {
+      config.cancelToken = new CancelToken((c) => {
         cancel = c;
       });
 
