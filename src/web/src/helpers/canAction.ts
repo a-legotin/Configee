@@ -11,7 +11,7 @@ function defineAbilitiesFor(type: string) {
     case USER_ROLE.ADMIN:
       can(['create', 'update', 'view', 'delete'], 'all');
       break;
-    case USER_ROLE.LEAD:
+    case USER_ROLE.USER:
       // menu
       can('view', DRAWER_MENU_LABEL.DASHBOARD);
       can('view', DRAWER_MENU_LABEL.USERS);

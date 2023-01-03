@@ -88,7 +88,7 @@ export default function SignIn() {
             <InputLabel id="select-outlined-label">Role</InputLabel>
             <Select fullWidth value={role} onChange={handleSelectChange} label="Role">
               <MenuItem value={USER_ROLE.ADMIN}>Admin</MenuItem>
-              <MenuItem value={USER_ROLE.LEAD}>Lead</MenuItem>
+              <MenuItem value={USER_ROLE.USER}>Lead</MenuItem>
               <MenuItem value={USER_ROLE.GUEST}>Guest</MenuItem>
             </Select>
           </FormControl>

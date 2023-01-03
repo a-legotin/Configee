@@ -22,6 +22,7 @@ const Error404View = lazy(() => import('features/Error404View'));
 const DenyView = lazy(() => import('features/DenyView'));
 const Users = lazy(() => import('features/Users'));
 const Dashboard = lazy(() => import('features/Dashboard'));
+const Configurations = lazy(() => import('features/Configurations'));
 const Login = lazy(() => import('features/Login'));
 
 const routesConfig: IRoutes[] = [
@@ -55,13 +56,19 @@ const routesConfig: IRoutes[] = [
         exact: true,
         path: PATH_NAME.DASHBOARD,
         component: Dashboard,
-        requireRoles: [USER_ROLE.ADMIN, USER_ROLE.LEAD],
+        requireRoles: [USER_ROLE.ADMIN, USER_ROLE.USER],
+      },
+      {
+        exact: true,
+        path: PATH_NAME.CONFIGURATIONS,
+        component: Configurations,
+        requireRoles: [USER_ROLE.ADMIN, USER_ROLE.USER],
       },
       {
         exact: true,
         path: PATH_NAME.USERS,
         component: Users,
-        requireRoles: [USER_ROLE.ADMIN, USER_ROLE.LEAD],
+        requireRoles: [USER_ROLE.ADMIN, USER_ROLE.USER],
       },
       {
         component: () => <Redirect to={PATH_NAME.ERROR_404} />,

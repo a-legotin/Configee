@@ -82,7 +82,6 @@ const useStyles = makeStyles((theme: Theme) =>
       color: 'inherit',
       display: 'flex',
       justifyContent: 'center',
-      textDecoration: 'none',
     },
     version: {
       fontSize: 12,

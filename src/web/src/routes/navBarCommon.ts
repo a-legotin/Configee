@@ -1,6 +1,7 @@
 // material icon
 import PeopleIcon from '@mui/icons-material/People';
-import DashboardIcon from '@mui/icons-material/Dashboard';
+import DashboardSharpIcon from '@mui/icons-material/DashboardSharp';
+import SettingsSharpIcon from '@mui/icons-material/SettingsSharp';
 
 // configs
 import { PATH_NAME, DRAWER_MENU_LABEL } from 'configs';
@@ -12,8 +13,14 @@ export const navBarCommon = [
       {
         title: 'Report',
         href: PATH_NAME.DASHBOARD,
-        icon: DashboardIcon,
+        icon: DashboardSharpIcon,
         label: DRAWER_MENU_LABEL.DASHBOARD,
+      },
+      {
+        title: 'Configurations',
+        href: PATH_NAME.CONFIGURATIONS,
+        icon: SettingsSharpIcon,
+        label: DRAWER_MENU_LABEL.CONFIGURATIONS,
       },
     ],
   },

@@ -1,5 +1,4 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
 import { makeStyles } from '@mui/styles';
 import Grid from '@mui/material/Unstable_Grid2';
 import Table from '@mui/material/Table';
@@ -10,9 +9,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import IconButton from '@mui/material/IconButton';
-import AddIcon from '@mui/icons-material/Add';
 import EditIcon from '@mui/icons-material/Edit';
-import { Button } from '@mui/material';
 
 const useStyles = makeStyles({
   table: {
@@ -28,24 +25,12 @@ const rows = [createData('Alexander', 'alex@ezlab.ru', 'ADMIN'), createData('Vas
 
 export default function UserList() {
   const classes = useStyles();
-  const history = useHistory();
 
   return (
     <>
       <Grid container alignItems="center">
-        <Grid sm={8}>
+        <Grid xs={8}>
           <h2>User</h2>
-        </Grid>
-        <Grid sm={4} container>
-          <Button
-            variant="contained"
-            color="primary"
-            size="small"
-            startIcon={<AddIcon />}
-            onClick={() => history.push('/user/add')}
-          >
-            Add
-          </Button>
         </Grid>
       </Grid>
       <TableContainer component={Paper}>
