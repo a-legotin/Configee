@@ -1,45 +1,22 @@
-import React, { useEffect } from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
-import { ThemeProvider } from '@mui/material/styles';
-// context
-import { useGlobalContext } from 'context/GlobalContext';
+import { useRoutes } from 'react-router-dom';
+import router from 'src/router';
 
-// containers
-import Auth from 'containers/Auth';
+import AdapterDateFns from '@mui/lab/AdapterDateFns';
+import LocalizationProvider from '@mui/lab/LocalizationProvider';
 
-// atomic
-import LinearProgress from 'components/atoms/LinearProgress';
-import Dialog from 'components/molecules/Dialog';
-
-// themes
-import themes from 'themes';
-import { THEMES } from 'configs';
-
-// routes
-import Routes from 'routes/Routes';
+import { CssBaseline } from '@mui/material';
+import ThemeProvider from './theme/ThemeProvider';
 
 function App() {
-  // 0: light, 1: dark
-  const { i18n } = useTranslation();
-  const { modeTheme, language } = useGlobalContext();
-  const type = modeTheme === THEMES.LIGHT ? 0 : 1;
-
-  useEffect(() => {
-    i18n.changeLanguage(language);
-  }, [language, i18n]);
+  const content = useRoutes(router);
 
   return (
-    <ThemeProvider theme={themes(type)}>
-      <Router>
-        <Auth>
-          <LinearProgress />
-          <Dialog />
-          <Routes />
-        </Auth>
-      </Router>
+    <ThemeProvider>
+      <LocalizationProvider dateAdapter={AdapterDateFns}>
+        <CssBaseline />
+        {content}
+      </LocalizationProvider>
     </ThemeProvider>
   );
 }
-
 export default App;

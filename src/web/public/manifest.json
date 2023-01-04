@@ -1,25 +1,6 @@
 {
-  "short_name": "React Boilerplate Material",
-  "name": "React Boilerplate Material",
-  "icons": [
-    {
-      "src": "logo.png",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
-    },
-    {
-      "src": "logo.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "logo.png",
-      "type": "image/png",
-      "sizes": "512x512"
-    }
-  ],
-  "start_url": ".",
+  "theme_color": "#1975ff",
+  "background_color": "#f2f5f9",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "start_url": "."
 }
