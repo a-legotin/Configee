@@ -50,7 +50,7 @@ function Sidebar() {
           background:
             theme.palette.mode === 'dark'
               ? alpha(lighten(theme.header.background, 0.1), 0.5)
-              : darken(theme.colors.alpha.black[100], 0.5),
+              : darken(theme.colors.alpha.black[100], 0.4),
           boxShadow: theme.palette.mode === 'dark' ? theme.sidebar.boxShadow : 'none'
         }}
       >
@@ -74,11 +74,6 @@ function Sidebar() {
           />
           <SidebarMenu />
         </Scrollbar>
-        <Divider
-          sx={{
-            background: theme.colors.alpha.trueWhite[10]
-          }}
-        />
       </SidebarWrapper>
       <Drawer
         sx={{
