@@ -1,11 +1,4 @@
-import {
-  Box,
-  List,
-  ListItem,
-  ListItemText,
-  Menu,
-  MenuItem
-} from '@mui/material';
+import { Box, List, ListItem, ListItemText, Menu, MenuItem } from '@mui/material';
 import { useRef, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
@@ -91,10 +84,7 @@ function HeaderMenu() {
             component={NavLink}
             to="/components/buttons"
           >
-            <ListItemText
-              primaryTypographyProps={{ noWrap: true }}
-              primary="Buttons"
-            />
+            <ListItemText primaryTypographyProps={{ noWrap: true }} primary="Buttons" />
           </ListItem>
           <ListItem
             classes={{ root: 'MuiListItem-indicators' }}
@@ -102,10 +92,7 @@ function HeaderMenu() {
             component={NavLink}
             to="/components/forms"
           >
-            <ListItemText
-              primaryTypographyProps={{ noWrap: true }}
-              primary="Forms"
-            />
+            <ListItemText primaryTypographyProps={{ noWrap: true }} primary="Forms" />
           </ListItem>
           <ListItem
             classes={{ root: 'MuiListItem-indicators' }}

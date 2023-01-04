@@ -17,9 +17,7 @@ function Footer() {
         justifyContent="space-between"
       >
         <Box>
-          <Typography variant="subtitle1">
-            &copy; 2022
-          </Typography>
+          <Typography variant="subtitle1">&copy; 2022</Typography>
         </Box>
       </Box>
     </FooterWrapper>

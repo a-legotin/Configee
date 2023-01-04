@@ -1,14 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import PageTitle from 'src/components/PageTitle';
 import PageTitleWrapper from 'src/components/PageTitleWrapper';
-import {
-  Container,
-  Grid,
-  Card,
-  CardHeader,
-  CardContent,
-  Divider
-} from '@mui/material';
+import { Container, Grid, Card, CardHeader, CardContent, Divider } from '@mui/material';
 import { useState } from 'react';
 import Footer from 'src/components/Footer';
 
@@ -27,9 +20,7 @@ import Badge from '@mui/material/Badge';
 const shapeStyles = { bgcolor: 'primary.main', width: 40, height: 40 };
 const shapeCircleStyles = { borderRadius: '50%' };
 const rectangle = <Box component="span" sx={shapeStyles} />;
-const circle = (
-  <Box component="span" sx={{ ...shapeStyles, ...shapeCircleStyles }} />
-);
+const circle = <Box component="span" sx={{ ...shapeStyles, ...shapeCircleStyles }} />;
 
 function Badges() {
   const [count, setCount] = useState(1);
@@ -128,20 +119,13 @@ function Badges() {
                     </ButtonGroup>
                   </div>
                   <div>
-                    <Badge
-                      color="secondary"
-                      variant="dot"
-                      invisible={invisible}
-                    >
+                    <Badge color="secondary" variant="dot" invisible={invisible}>
                       <MailIcon />
                     </Badge>
                     <FormControlLabel
                       sx={{ color: 'text.primary' }}
                       control={
-                        <Switch
-                          checked={!invisible}
-                          onChange={handleBadgeVisibility}
-                        />
+                        <Switch checked={!invisible} onChange={handleBadgeVisibility} />
                       }
                       label="Show Badge"
                     />

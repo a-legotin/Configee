@@ -92,7 +92,6 @@ const VersionBadge = styled(Box)(
 function Logo() {
   return (
     <LogoWrapper to="/">
-
       <Box
         component="span"
         sx={{

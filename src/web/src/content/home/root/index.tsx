@@ -90,8 +90,8 @@ function Hero() {
             color="text.secondary"
             fontWeight="normal"
           >
-            <strong>Configee</strong> is the open-source platform to store and
-            provide configuration to your apps. Easy.
+            <strong>Configee</strong> is the open-source platform to store and provide
+            configuration to your apps. Easy.
           </TypographyH2>
           <Button
             component={RouterLink}

@@ -1,12 +1,5 @@
 import { useState } from 'react';
-import {
-  Box,
-  Typography,
-  Hidden,
-  Container,
-  Button,
-  Grid
-} from '@mui/material';
+import { Box, Typography, Hidden, Container, Button, Grid } from '@mui/material';
 import { Helmet } from 'react-helmet-async';
 import RefreshTwoToneIcon from '@mui/icons-material/RefreshTwoTone';
 import LoadingButton from '@mui/lab/LoadingButton';
@@ -75,8 +68,8 @@ function Status500() {
                 fontWeight="normal"
                 sx={{ mb: 4 }}
               >
-                The server encountered an internal error and was not able to
-                complete your request
+                The server encountered an internal error and was not able to complete your
+                request
               </Typography>
               <LoadingButton
                 onClick={handleClick}
@@ -87,11 +80,7 @@ function Status500() {
               >
                 Refresh view
               </LoadingButton>
-              <Button
-                href="/dashboards/overview"
-                variant="contained"
-                sx={{ ml: 1 }}
-              >
+              <Button href="/dashboards/overview" variant="contained" sx={{ ml: 1 }}>
                 Go to dashboard
               </Button>
             </Box>

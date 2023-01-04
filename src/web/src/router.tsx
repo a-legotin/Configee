@@ -24,36 +24,20 @@ const OverviewDashboard = Loader(lazy(() => import('src/content/dashboards/overv
 
 // Components
 
-const Buttons = Loader(
-  lazy(() => import('src/content/pages/Components/Buttons'))
-);
-const Modals = Loader(
-  lazy(() => import('src/content/pages/Components/Modals'))
-);
-const Accordions = Loader(
-  lazy(() => import('src/content/pages/Components/Accordions'))
-);
+const Buttons = Loader(lazy(() => import('src/content/pages/Components/Buttons')));
+const Modals = Loader(lazy(() => import('src/content/pages/Components/Modals')));
+const Accordions = Loader(lazy(() => import('src/content/pages/Components/Accordions')));
 const Tabs = Loader(lazy(() => import('src/content/pages/Components/Tabs')));
-const Badges = Loader(
-  lazy(() => import('src/content/pages/Components/Badges'))
-);
-const Tooltips = Loader(
-  lazy(() => import('src/content/pages/Components/Tooltips'))
-);
-const Avatars = Loader(
-  lazy(() => import('src/content/pages/Components/Avatars'))
-);
+const Badges = Loader(lazy(() => import('src/content/pages/Components/Badges')));
+const Tooltips = Loader(lazy(() => import('src/content/pages/Components/Tooltips')));
+const Avatars = Loader(lazy(() => import('src/content/pages/Components/Avatars')));
 const Cards = Loader(lazy(() => import('src/content/pages/Components/Cards')));
 const Forms = Loader(lazy(() => import('src/content/pages/Components/Forms')));
 
 // Status
 
-const Status404 = Loader(
-  lazy(() => import('src/content/pages/Status/Status404'))
-);
-const Status500 = Loader(
-  lazy(() => import('src/content/pages/Status/Status500'))
-);
+const Status404 = Loader(lazy(() => import('src/content/pages/Status/Status404')));
+const Status500 = Loader(lazy(() => import('src/content/pages/Status/Status500')));
 
 const routes: RouteObject[] = [
   {
@@ -78,7 +62,7 @@ const routes: RouteObject[] = [
           {
             path: '500',
             element: <Status500 />
-          },
+          }
         ]
       },
       {

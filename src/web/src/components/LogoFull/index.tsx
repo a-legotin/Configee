@@ -1,7 +1,7 @@
 import { Box, styled, Tooltip } from '@mui/material';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo_full from '../../assets/logo_nav.png'
+import logo_full from '../../assets/logo_nav.png';
 
 const LogoFullWrapper = styled(Link)(
   ({ theme }) => `
@@ -13,11 +13,10 @@ const LogoFullWrapper = styled(Link)(
 `
 );
 
-
 function LogoFull() {
   return (
     <LogoFullWrapper to="/">
-          <img src={logo_full} alt="Configee" height={48} />
+      <img src={logo_full} alt="Configee" height={48} />
     </LogoFullWrapper>
   );
 }

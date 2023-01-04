@@ -3,14 +3,7 @@ import PageTitle from 'src/components/PageTitle';
 import { useState } from 'react';
 
 import PageTitleWrapper from 'src/components/PageTitleWrapper';
-import {
-  Container,
-  Grid,
-  Card,
-  CardHeader,
-  CardContent,
-  Divider
-} from '@mui/material';
+import { Container, Grid, Card, CardHeader, CardContent, Divider } from '@mui/material';
 import Footer from 'src/components/Footer';
 
 import Box from '@mui/material/Box';
@@ -134,11 +127,7 @@ function Forms() {
                         shrink: true
                       }}
                     />
-                    <TextField
-                      id="outlined-search"
-                      label="Search field"
-                      type="search"
-                    />
+                    <TextField id="outlined-search" label="Search field" type="search" />
                     <TextField
                       id="outlined-helperText"
                       label="Helper text"
@@ -412,26 +401,10 @@ function Forms() {
                 <Divider sx={{ my: 5 }} />
                 <FormControl component="fieldset">
                   <FormLabel component="legend">Gender</FormLabel>
-                  <RadioGroup
-                    row
-                    aria-label="gender"
-                    name="row-radio-buttons-group"
-                  >
-                    <FormControlLabel
-                      value="female"
-                      control={<Radio />}
-                      label="Female"
-                    />
-                    <FormControlLabel
-                      value="male"
-                      control={<Radio />}
-                      label="Male"
-                    />
-                    <FormControlLabel
-                      value="other"
-                      control={<Radio />}
-                      label="Other"
-                    />
+                  <RadioGroup row aria-label="gender" name="row-radio-buttons-group">
+                    <FormControlLabel value="female" control={<Radio />} label="Female" />
+                    <FormControlLabel value="male" control={<Radio />} label="Male" />
+                    <FormControlLabel value="other" control={<Radio />} label="Other" />
                     <FormControlLabel
                       value="disabled"
                       disabled
@@ -449,25 +422,12 @@ function Forms() {
               <Divider />
               <CardContent>
                 <Box sx={{ width: 200 }}>
-                  <Stack
-                    spacing={2}
-                    direction="row"
-                    sx={{ mb: 1 }}
-                    alignItems="center"
-                  >
+                  <Stack spacing={2} direction="row" sx={{ mb: 1 }} alignItems="center">
                     <VolumeDown />
-                    <Slider
-                      aria-label="Volume"
-                      value={value}
-                      onChange={handleChange2}
-                    />
+                    <Slider aria-label="Volume" value={value} onChange={handleChange2} />
                     <VolumeUp />
                   </Stack>
-                  <Slider
-                    disabled
-                    defaultValue={30}
-                    aria-label="Disabled slider"
-                  />
+                  <Slider disabled defaultValue={30} aria-label="Disabled slider" />
                 </Box>
               </CardContent>
             </Card>

@@ -6,9 +6,7 @@ type SidebarContext = {
 };
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
-export const SidebarContext = createContext<SidebarContext>(
-  {} as SidebarContext
-);
+export const SidebarContext = createContext<SidebarContext>({} as SidebarContext);
 
 export const SidebarProvider: FC = ({ children }) => {
   const [sidebarToggle, setSidebarToggle] = useState(false);
@@ -20,9 +18,7 @@ export const SidebarProvider: FC = ({ children }) => {
   };
 
   return (
-    <SidebarContext.Provider
-      value={{ sidebarToggle, toggleSidebar, closeSidebar }}
-    >
+    <SidebarContext.Provider value={{ sidebarToggle, toggleSidebar, closeSidebar }}>
       {children}
     </SidebarContext.Provider>
   );
