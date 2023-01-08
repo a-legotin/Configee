@@ -1,6 +1,8 @@
 import ReactDOM from 'react-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
 
 import 'nprogress/nprogress.css';
 import App from 'src/App';
@@ -11,7 +13,9 @@ ReactDOM.render(
   <HelmetProvider>
     <SidebarProvider>
       <BrowserRouter>
-        <App />
+        <Provider store={store}>
+          <App />
+        </Provider>
       </BrowserRouter>
     </SidebarProvider>
   </HelmetProvider>,

@@ -2,10 +2,11 @@ import { Suspense, lazy } from 'react';
 import { Navigate } from 'react-router-dom';
 import { RouteObject } from 'react-router';
 
-import SidebarLayout from 'src/layouts/SidebarLayout';
-import BaseLayout from 'src/layouts/BaseLayout';
+import SidebarLayout from './layouts/SidebarLayout';
+import BaseLayout from './layouts/BaseLayout';
 
-import SuspenseLoader from 'src/components/SuspenseLoader';
+import SuspenseLoader from './components/SuspenseLoader';
+import { ProtectedRoute } from './guards/ProtectedRoute/ProtectedRoute';
 
 const Loader = (Component) => (props) =>
   (
@@ -17,6 +18,7 @@ const Loader = (Component) => (props) =>
 // Pages
 
 const Home = Loader(lazy(() => import('src/content/home')));
+const Login = Loader(lazy(() => import('src/content/user/Login/Login')));
 
 // Dashboards
 
@@ -49,6 +51,10 @@ const routes: RouteObject[] = [
         element: <Home />
       },
       {
+        path: '/login',
+        element: <Login />
+      },
+      {
         path: 'status',
         children: [
           {
@@ -77,11 +83,19 @@ const routes: RouteObject[] = [
     children: [
       {
         path: '',
-        element: <Navigate to="overview" replace />
+        element: (
+          <ProtectedRoute>
+            <Navigate to="overview" replace />
+          </ProtectedRoute>
+        )
       },
       {
         path: 'overview',
-        element: <OverviewDashboard />
+        element: (
+          <ProtectedRoute>
+            <OverviewDashboard />
+          </ProtectedRoute>
+        )
       }
     ]
   },
