@@ -18,11 +18,11 @@ export type UserAction<T> = {
   payload?: T;
 };
 
-export function login(credentials: Credentials): UserAction<Credentials> {
-  console.log('creds:' + credentials);
+export function login(user: User): UserAction<User> {
+  console.log('user:' + JSON.stringify(user));
   return {
     type: LOGIN_USER,
-    payload: credentials
+    payload: user
   };
 }
 

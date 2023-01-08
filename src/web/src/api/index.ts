@@ -22,7 +22,7 @@ const resendConfirmation = (email: string) =>
 const resetRegister = (email: string) =>
   http.post<void>('/user/register/cancel', { email });
 
-const getUser = () => http.get<{ user: User }>('/users/me');
+const getUser = () => http.get('/users/me');
 
 export {
   postLogin,

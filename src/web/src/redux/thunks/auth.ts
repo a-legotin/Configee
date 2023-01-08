@@ -16,8 +16,8 @@ import { NavigateFunction } from 'react-router';
 export const attemptLogin =
   (credentials: Credentials, navigate: NavigateFunction) => (dispatch: Dispatch) =>
     postLogin(credentials).then(({ data }) => {
-      console.log('logged in ' + data);
-      dispatch(login(credentials));
+      console.log('logged in ' + JSON.stringify(data));
+      dispatch(login(data));
       navigate('/dashboards/overview', { replace: true });
     });
 

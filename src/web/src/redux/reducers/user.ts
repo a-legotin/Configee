@@ -18,6 +18,7 @@ const initialState: UserState = {
 };
 
 export default function user(action: UserAction<any>, state = initialState): UserState {
+  console.log('user reducer:' + action?.type + ' ' + action?.payload);
   switch (action?.type) {
     case LOGIN_USER:
       return {
