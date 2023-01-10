@@ -2,6 +2,7 @@ version: '3.4'
 
 services:
   configee-nginx:
+    image: configee-nginx
     build:
       context: nginx/.
       network: host
