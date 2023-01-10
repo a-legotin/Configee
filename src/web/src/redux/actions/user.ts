@@ -4,12 +4,18 @@ export const SET_USER = 'SET_USER';
 export const RESET_USER = 'RESET_USER';
 
 export type User = {
+  id: number;
   email: string;
   role: string;
 };
 
+export type UserToken = {
+  token: string;
+  user: User;
+};
+
 export type Credentials = {
-  username: string;
+  email: string;
   password: string;
 };
 
@@ -18,11 +24,11 @@ export type UserAction<T> = {
   payload?: T;
 };
 
-export function login(user: User): UserAction<User> {
-  console.log('user:' + JSON.stringify(user));
+export function login(userToken: UserToken): UserAction<User> {
+  console.log('user:' + JSON.stringify(userToken));
   return {
     type: LOGIN_USER,
-    payload: user
+    payload: userToken.user
   };
 }
 

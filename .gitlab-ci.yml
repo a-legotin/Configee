@@ -44,9 +44,13 @@ build-images:
     - docker info
   script:
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
-    - docker-compose build
+    - docker-compose -f docker-compose.yml build
     - docker tag configee-web:latest $CI_REGISTRY_IMAGE/configee-web:latest
+    - docker tag configee-api:latest $CI_REGISTRY_IMAGE/configee-api:latest
+    - docker tag configee-nginx:latest $CI_REGISTRY_IMAGE/configee-nginx:latest
     - docker push $CI_REGISTRY_IMAGE/configee-web:latest
+    - docker push $CI_REGISTRY_IMAGE/configee-api:latest
+    - docker push $CI_REGISTRY_IMAGE/configee-api:latest
 
 deploy:
   stage: deploy

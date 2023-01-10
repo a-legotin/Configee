@@ -25,3 +25,57 @@ spec:
            imagePullPolicy: Always
       imagePullSecrets:
         - name: registry-credentials
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: configee-api-deployment
+  namespace: configee
+  labels:
+    app: configee-api
+spec:
+  replicas: 1
+  revisionHistoryLimit: 2
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: configee-api
+  template:
+    metadata:
+      labels:
+        app: configee-api
+    spec:
+      containers:
+         - name: configee-api
+           image: registry.ezlab.ru/ezlab/configee/configee-api:latest
+           imagePullPolicy: Always
+      imagePullSecrets:
+        - name: registry-credentials
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: configee-nginx-deployment
+  namespace: configee
+  labels:
+    app: configee-nginx
+spec:
+  replicas: 1
+  revisionHistoryLimit: 2
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: configee-nginx
+  template:
+    metadata:
+      labels:
+        app: configee-nginx
+    spec:
+      containers:
+         - name: configee-nginx
+           image: registry.ezlab.ru/ezlab/configee/configee-nginx:latest
+           imagePullPolicy: Always
+      imagePullSecrets:
+        - name: registry-credentials

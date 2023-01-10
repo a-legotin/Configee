@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Configee.API.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("api/[controller]")]
 public class AuthController : ControllerBase
 {
     private readonly ILogger<UsersController> _logger;
@@ -19,10 +19,25 @@ public class AuthController : ControllerBase
         _usersAuth = usersAuth;
     }
 
-    [HttpGet("me")]
-    public User Get()
+    [HttpPost("login")]
+    public IActionResult Login([FromBody] UserCredentials credentials)
     {
-        _logger.LogDebug("Getting current user");
-        return _usersDb.Users[1];
+        _logger.LogDebug("Logging user {user} in", credentials.Email);
+
+        var user = _usersDb.Users.Values.FirstOrDefault(user =>
+            user.Email.Equals(credentials.Email, StringComparison.InvariantCultureIgnoreCase));
+        if (user == null)
+        {
+            return Unauthorized();
+        }
+
+        if (_usersAuth.UsersTokens.TryGetValue(user.Id, out var token))
+        {
+            return Ok(token);
+        }
+
+        token = new UserToken(user, Guid.NewGuid().ToString());
+        _usersAuth.UsersTokens[user.Id] = token;
+        return Ok(token);
     }
 }

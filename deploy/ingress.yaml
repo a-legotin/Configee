@@ -2,21 +2,21 @@
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  name: configee-web-ingress
+  name: configee-nginx-ingress
   namespace: configee
   annotations: 
     kubernetes.io/ingress.class: traefik-external
 spec:
   entryPoints:
-    - web
+    - nginx
   routes:
     - match: Host(`configee.staging.ezlab.ru`)
       kind: Rule
       services:
-        - name: configee-web
+        - name: configee-nginx
           port: 80
     - match: Host(`configee.staging.box.ezlab.ru`)
       kind: Rule
       services:
-        - name: configee-web
+        - name: configee-nginx
           port: 80

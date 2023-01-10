@@ -9,6 +9,7 @@ import ThemeProvider from './theme/ThemeProvider';
 import { useEffect, useState } from 'react';
 import { attemptGetUser } from './redux/thunks/user';
 import { useAppDispatch } from './redux/hooks';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   const content = useRoutes(router);

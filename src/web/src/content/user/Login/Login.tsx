@@ -14,6 +14,8 @@ import Checkbox from '@mui/material/Checkbox';
 import { attemptLogin } from 'src/redux/thunks/auth';
 import { useServerError } from '../../../hooks/useServerError';
 import { useAppDispatch } from 'src/redux/hooks';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Login() {
   const { serverError, handleServerError } = useServerError();
@@ -24,7 +26,7 @@ function Login() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    dispatch(attemptLogin({ username: name, password: '' }, navigate)).catch(
+    dispatch(attemptLogin({ email: name, password: '' }, navigate)).catch(
       handleServerError
     );
   };
@@ -76,6 +78,7 @@ function Login() {
             Sign In
           </Button>
         </Box>
+        <ToastContainer autoClose={5000} />
       </Box>
     </Container>
   );

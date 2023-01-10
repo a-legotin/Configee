@@ -19,7 +19,7 @@ services:
     build:
       context: src/web/.
       network: host
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.dev
     restart: unless-stopped
     deploy:
       replicas: 1

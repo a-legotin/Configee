@@ -1,8 +1,11 @@
 import { Credentials, User } from 'src/redux/actions/user';
 import http from '../services/httpService';
 
-const postLogin = (credentials: Credentials) =>
-  http.post('/auth/login', { ...credentials });
+const postLogin = (credentials: Credentials) => {
+  console.log('logging in ' + JSON.stringify(credentials));
+
+  return http.post('/auth/login', { ...credentials });
+};
 
 const sendResetPasswordLink = (email: string) =>
   http.post('/auth/login/forgot', { email });

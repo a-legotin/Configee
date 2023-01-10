@@ -12,14 +12,32 @@ import {
   resetPassword
 } from '../../api/index';
 import { NavigateFunction } from 'react-router';
+import { toast } from 'react-toastify';
 
 export const attemptLogin =
   (credentials: Credentials, navigate: NavigateFunction) => (dispatch: Dispatch) =>
-    postLogin(credentials).then(({ data }) => {
-      console.log('logged in ' + JSON.stringify(data));
-      dispatch(login(data));
-      navigate('/dashboards/overview', { replace: true });
-    });
+    postLogin(credentials)
+      .then(({ data }) => {
+        console.log('logged in ' + JSON.stringify(data));
+        dispatch(login(data));
+        toast.success('Logged in ' + data.user.email, {
+          position: 'top-center',
+          hideProgressBar: true,
+          closeOnClick: true,
+          progress: undefined,
+          theme: 'light'
+        });
+        navigate('/dashboards/overview', { replace: true });
+      })
+      .catch((e) => {
+        toast.error(e.message, {
+          position: 'top-center',
+          hideProgressBar: true,
+          closeOnClick: true,
+          progress: undefined,
+          theme: 'light'
+        });
+      });
 
 export const attemptSendResetPasswordLink = (email: string, navigate: NavigateFunction) =>
   sendResetPasswordLink(email).then(() => {

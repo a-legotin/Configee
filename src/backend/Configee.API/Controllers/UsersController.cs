@@ -1,32 +1,26 @@
+using Configee.API.Models;
+using Configee.API.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Configee.API.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("api/[controller]")]
 public class UsersController : ControllerBase
 {
-    private static readonly string[] Summaries = new[]
-    {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
-
     private readonly ILogger<UsersController> _logger;
+    private readonly UsersDb _usersDb;
 
-    public UsersController(ILogger<UsersController> logger)
+    public UsersController(ILogger<UsersController> logger, UsersDb usersDb)
     {
         _logger = logger;
+        _usersDb = usersDb;
     }
 
-    [HttpGet(Name = "GetWeatherForecast")]
-    public IEnumerable<WeatherForecast> Get()
+    [HttpGet("me")]
+    public User Get()
     {
-        return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
-            .ToArray();
+        _logger.LogDebug("Getting current user");
+        return _usersDb.Users[1];
     }
 }
