@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: process.env.CONFIGEE_API === undefined ? `/api` : `${process.env.CONFIGEE_API}/api`,
+  baseURL:
+    process.env.CONFIGEE_API === undefined ? `/api` : `${process.env.CONFIGEE_API}/api`,
   withCredentials: true
 });
 
