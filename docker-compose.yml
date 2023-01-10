@@ -3,11 +3,9 @@ version: '3.4'
 services:
   configee-nginx:
     build:
-      context: src/nginx/.
+      context: nginx/.
       network: host
       dockerfile: Dockerfile
-    volumes:
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
     ports:
       - '8080:80'
     depends_on:
