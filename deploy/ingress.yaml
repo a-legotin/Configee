@@ -8,7 +8,7 @@ metadata:
     kubernetes.io/ingress.class: traefik-external
 spec:
   entryPoints:
-    - nginx
+    - web
   routes:
     - match: Host(`configee.staging.ezlab.ru`)
       kind: Rule
