@@ -10,7 +10,7 @@ spec:
   entryPoints:
     - web
   routes:
-    - match: Host(`configee.staging.ezlab.ru`)
+    - match: Host(`configee.ezlab.ru`)
       kind: Rule
       services:
         - name: configee-nginx
