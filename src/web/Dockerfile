@@ -1,4 +1,4 @@
-FROM node:16-alpine3.11 AS build
+FROM node:18-alpine3.18 AS build
 USER root
 RUN npm -g install serve
 RUN rm -rf /home/node/app
@@ -7,7 +7,8 @@ WORKDIR /home/node/app
 COPY . /home/node/app
 
 RUN cd /home/node/app
-RUN npm install
+RUN npm install -g npm@10.5.0
+RUN npm install -d
 RUN npm run build
 RUN chown -R root:root /home/node/app/build
 RUN ls -la /home/node/app/build

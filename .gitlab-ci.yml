@@ -25,13 +25,13 @@ build-app:
   stage: build-app
   tags:
     - docker
-  image: node:16-alpine3.11
+  image: node:18-alpine3.18
   script:
     - node -v
-    - npm install -g npm@9.2.0
+    - npm install -g npm@10.5.0
     - npm -v
     - cd src/web
-    - npm install
+    - npm install -d
     - npm run ready
 
 build-images:
