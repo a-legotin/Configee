@@ -29,6 +29,8 @@ build-app:
   script:
     - node -v
     - npm install -g npm@10.5.0
+    - npm cache clean -f
+    - npm install
     - npm -v
     - cd src/web
     - npm install -d
